@@ -14,21 +14,23 @@ function App() {
     setError("");
     setWeather(null);
 
-    try {
+     try {
+      const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+
       const res = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
       );
 
-      const data = await res.json();
-
-      if (data.cod !== 200) {
-        setError("City not found ❌");
-        return;
+      if (!res.ok) {
+        throw new Error("City not found");
       }
 
+      const data = await res.json();
       setWeather(data);
     } catch (err) {
-      setError("Something went wrong 😢");
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 return (
@@ -46,6 +48,7 @@ return (
         />
         <button onClick={getWeather}>Search</button>
       </div>
+{error && <p className="error">{error}</p>}
 
       {weather && weather.main && (
         <div className="weather-card">

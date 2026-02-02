@@ -50,3 +50,9 @@ body {
   font-size: 3rem;
   font-weight: bold;
 }
+.error {
+  color: red;          /* makes the text red */
+  font-weight: bold;   /* optional: bold for emphasis */
+  margin-top: 1rem;    /* spacing below search box */
+  text-align: center;  /* center it nicely */
+}
