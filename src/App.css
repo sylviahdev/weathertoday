@@ -1,58 +1,114 @@
+/* Dark overall background for strong contrast */
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
-  background: #4dabf7;
-}
-
-.app {
   min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  background: #0f172a; /* dark navy-blue */
+  font-family: system-ui, Arial, sans-serif;
 }
 
-.card {
-  background: #6ec1ff;
-  padding: 2.5rem;
-  border-radius: 20px;
-  width: 320px;
-  color: white;
+/* App container */
+.app {
+  width: 90%;
+  max-width: 360px;
+}
+
+/* Weather card with frosted glass and subtle shadow */
+.weather-card {
+  background: rgba(30, 58, 138, 0.85); /* dark blue with transparency */
+  backdrop-filter: blur(8px);          /* subtle frosted glass effect */
+  color: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* subtle shadow */
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.weather-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.weather-card h1 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+/* Search bar */
 .search {
   display: flex;
-  gap: 10px;
-  margin: 1rem 0;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .search input {
   flex: 1;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
   border: none;
+  font-size: 1rem;
 }
 
 .search button {
-  background: #2563eb;
-  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
   border: none;
-  border-radius: 10px;
-  padding: 10px 16px;
+  background-color: #2563eb;
+  color: #fff;
   cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.weather-card {
-  margin-top: 1.5rem;
+.search button:hover {
+  background-color: #1e40af;
+  transform: translateY(-2px);
 }
 
-.temp {
-  font-size: 3rem;
+/* Error message */
+.error {
+  color: #ff4d4d;
+  margin-bottom: 1rem;
   font-weight: bold;
 }
-.error {
-  color: red;          /* makes the text red */
-  font-weight: bold;   /* optional: bold for emphasis */
-  margin-top: 1rem;    /* spacing below search box */
-  text-align: center;  /* center it nicely */
+
+/* Weather results */
+.weather-card h2 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+/* Main weather icon */
+.icon {
+  font-size: 4rem; /* large central icon */
+  margin: 0.5rem 0 1rem 0;
+}
+
+/* Temperature */
+.weather-card .temp {
+  font-size: 3rem;  /* slightly bigger for focus */
+  font-weight: bold;
+}
+
+/* Condition text */
+.weather-card .condition {
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+
+/* Extra info: humidity & wind */
+.extra-info {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.extra-info p {
+  margin: 0.25rem 0;
 }
