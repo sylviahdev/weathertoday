@@ -48,10 +48,19 @@ function App() {
         <div className="search">
           <input
             type="text"
-            placeholder="Enter city name..."
+            placeholder="Enter city"
             value={city}
             onChange={(e) => setCity(e.target.value)}
+
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                getWeather();
+              }
+            }}
+
+            className="flex-1 px-3 py-2 rounded text-black"
           />
+
           <button onClick={getWeather}>Search</button>
         </div>
 
